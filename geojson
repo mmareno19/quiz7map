@@ -1,0 +1,16 @@
+var planet = {
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.05049324035645,
+          35.913870557129535
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quiz</title>
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+
+    <script src = "/Users/mads/Desktop/GEOG370/leaflet/geo2"></script>
+
+</head>
+<body>
+   <div id="mapid" ></div>
+   <style>
+       #mapid { width: 900px; height: 500px;}
+   </style>
+
+   <script>
+       var map = L.map('mapid').setView([35.91,-79.05], 17)
+        L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {}).addTo(map)
+        L.marker([35.911271, -79.049807]).addTo(map)
+            .bindPopup("CH 322")
+            .openPopup();
+        L.geoJSON(planet).addTo(map)
+        var uncIcon = L.icon({
+            iconUrl:'https://cdn0.iconfinder.com/data/icons/cosmo-building/40/planetarium_observatory-512.png',
+            iconSize: [50,50],
+            popupAnchor: [0,0]
+        });
+        var custompop = "Morehead Planetarium<br/><img src='https://assets.simpleviewinc.com/simpleview/image/upload/crm/chapelhill/Morehead-Planetarium-Sceince-Center-5ea50ca75056b3a_5ea50d90-5056-b3a8-496aef3392379209.jpg'width='100px'/>";
+
+        L.geoJSON(planet, { // a
+pointToLayer: function (feature, latlng) { // b 
+return L.marker(latlng, {icon: uncIcon});}}) // c 
+.bindPopup(custompop) // d
+.addTo(map); //
+    
+    </script>
+<body>
+<head>
